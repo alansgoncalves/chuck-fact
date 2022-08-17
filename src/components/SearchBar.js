@@ -1,35 +1,50 @@
-import React from "react";
-import { Box } from "@chakra-ui/layout";
-import { Tooltip } from "@chakra-ui/tooltip";
-import { Button } from "@chakra-ui/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import React, { useEffect } from "react";
+import { Input, Stack, InputGroup, InputLeftElement } from "@chakra-ui/react";
+import chuck from "../images/chuck.png";
+import { Image } from "@chakra-ui/react";
+import { SearchIcon } from "@chakra-ui/icons";
+import axios from "axios";
 
 const SearchBar = () => {
+  async function fetchData() {
+    let response = await axios.get("https://api.chucknorris.io/jokes/random");
+    let user = await response.data.value;
+    console.log(user);
+  }
+
+  useEffect(() => {
+    fetchData();
+  });
+
   return (
     <div>
-      <Box
-        display="flex"
-        justifyContent="space-between"
-        alignItems="center"
-        bg="white"
-        w={{ base: "70%", md: "50%" }}
-        p="5px 10px 5px 10px"
-        borderWidth="5px"
+      <Image
+        src={chuck}
+        alt="chuck"
+        id="chuck-img"
         mr="auto"
         ml="auto"
-        borderRadius="10px"
-      >
-        <Tooltip
-          label="Search for users to chat"
-          hasArrow
-          placement="bottom-end"
+        w={{ base: "50%", md: "20%" }}
+      />
+      <Stack spacing={4}>
+        <InputGroup
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          w={{ base: "70%", md: "40%" }}
+          color="black"
+          // borderWidth="2px"
+          mr="auto"
+          ml="auto"
+          borderRadius="10px"
         >
-          <Button variant="ghost">
-            <FontAwesomeIcon icon={faSearch} />
-          </Button>
-        </Tooltip>
-      </Box>
+          <InputLeftElement
+            pointerEvents="none"
+            children={<SearchIcon color="black" />}
+          />
+          <Input type="tel" placeholder="Search term..." />
+        </InputGroup>
+      </Stack>
     </div>
   );
 };
