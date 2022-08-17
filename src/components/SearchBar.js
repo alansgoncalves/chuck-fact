@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Input, Stack, InputGroup, InputLeftElement } from "@chakra-ui/react";
 import chuck from "../images/chuck.png";
 import { Image } from "@chakra-ui/react";
@@ -6,15 +6,20 @@ import { SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
 const SearchBar = () => {
-  async function fetchData() {
+  const [currentJoke, setCurrentJoke] = useState({
+    joke: "",
+  });
+
+  async function fetchRandom() {
     let response = await axios.get("https://api.chucknorris.io/jokes/random");
     let user = await response.data.value;
-    console.log(user);
+    setCurrentJoke({ ...currentJoke, joke: response.data.value });
+    return user;
   }
 
   useEffect(() => {
-    fetchData();
-  });
+    fetchRandom();
+  }, []);
 
   return (
     <div>
@@ -45,6 +50,7 @@ const SearchBar = () => {
           <Input type="tel" placeholder="Search term..." />
         </InputGroup>
       </Stack>
+      <h4>{currentJoke.joke}</h4>
     </div>
   );
 };
