@@ -1,12 +1,27 @@
-.input-msg {
-  display: flex;
+@media screen and (min-width: 768px) {
+  #joke-txt {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+
+  #loading-jokes {
+    display: flex;
+    flex-direction: column;
+    margin-right: 30%;
+    margin-left: 30%;
+    margin-top: 10px;
+    justify-content: center;
+  }
 }
 
-.InputLeft {
-  top: 0px !important;
-  left: 56px !important;
+@media screen and (max-width: 767px) {
+  #loading-jokes {
+    display: flex;
+    flex-direction: column;
+    padding-left: 15%;
+    padding-right: 15%;
+    margin-top: 10px;
+  }
 }
-
-/* .Input {
-  padding-left: 24px !important;
-} */

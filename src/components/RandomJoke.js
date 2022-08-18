@@ -4,7 +4,6 @@ import chuck from "../images/chuck.png";
 import { Image } from "@chakra-ui/react";
 // import { SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
-import SearchBar from "./SearchBar";
 
 const RandomJoke = () => {
   const [currentJoke, setCurrentJoke] = useState({
@@ -34,8 +33,6 @@ const RandomJoke = () => {
       <h4>{currentJoke.joke}</h4>
       <br />
       <br />
-      <br />
-      <SearchBar />
     </div>
   );
 };
