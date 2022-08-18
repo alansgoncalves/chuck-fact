@@ -1,56 +1,46 @@
-import React, { useEffect, useState } from "react";
-import { Input, Stack, InputGroup, InputLeftElement } from "@chakra-ui/react";
-import chuck from "../images/chuck.png";
-import { Image } from "@chakra-ui/react";
-import { SearchIcon } from "@chakra-ui/icons";
+import React, { useState } from "react";
 import axios from "axios";
 
 const SearchBar = () => {
-  const [currentJoke, setCurrentJoke] = useState({
-    joke: "",
-  });
+  const [searchText, setSearchText] = useState("");
+  const [jokes, setJokes] = useState([]);
 
-  async function fetchRandom() {
-    let response = await axios.get("https://api.chucknorris.io/jokes/random");
-    let user = await response.data.value;
-    setCurrentJoke({ ...currentJoke, joke: response.data.value });
-    return user;
-  }
-
-  useEffect(() => {
-    fetchRandom();
-  }, []);
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if (!searchText) {
+      alert("Please enter a search");
+      return;
+    }
+    axios
+      .get(`https://api.chucknorris.io/jokes/search?query=${searchText}`)
+      .then((response) => {
+        const data = response.data.result;
+        console.log(data);
+        setJokes(response.data.result);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
-      <Image
-        src={chuck}
-        alt="chuck"
-        id="chuck-img"
-        mr="auto"
-        ml="auto"
-        w={{ base: "50%", md: "20%" }}
-      />
-      <Stack spacing={4}>
-        <InputGroup
-          display="flex"
-          justifyContent="space-between"
-          alignItems="center"
-          w={{ base: "70%", md: "40%" }}
-          color="black"
-          // borderWidth="2px"
-          mr="auto"
-          ml="auto"
-          borderRadius="10px"
-        >
-          <InputLeftElement
-            pointerEvents="none"
-            children={<SearchIcon color="black" />}
+      <div className="App">
+        <form onSubmit={handleSubmit}>
+          <input
+            placeholder={"Search joke"}
+            onChange={(event) => {
+              setSearchText(event.target.value);
+            }}
           />
-          <Input type="tel" placeholder="Search term..." />
-        </InputGroup>
-      </Stack>
-      <h4>{currentJoke.joke}</h4>
+          <button>Search</button>
+        </form>
+      </div>
+      <p>
+        {jokes.map((joke, index) => (
+          <h2 key={index}>{joke.value}</h2>
+        ))}
+      </p>
     </div>
   );
 };

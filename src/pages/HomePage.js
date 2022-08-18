@@ -1,10 +1,10 @@
 import React from "react";
-import SearchBar from "../components/SearchBar";
+import RandomJoke from "../components/RandomJoke";
 
 const HomePage = () => {
   return (
     <div>
-      <SearchBar />
+      <RandomJoke />
     </div>
   );
 };
