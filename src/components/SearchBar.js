@@ -10,6 +10,7 @@ import {
 import { SearchIcon } from "@chakra-ui/icons";
 import { useToast } from "@chakra-ui/react";
 import JokeLoading from "./JokeLoading";
+import Highlighter from "react-highlight-words";
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
@@ -80,7 +81,12 @@ const SearchBar = () => {
         ) : (
           jokes.map((joke, index) => (
             <p id="joke-txt" width="50px" key={index}>
-              {joke.value}
+              <Highlighter
+                highlightClassName="YourHighlightClass"
+                searchWords={[searchText]}
+                autoEscape={true}
+                textToHighlight={joke.value}
+              />
             </p>
           ))
         )}

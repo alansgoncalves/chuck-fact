@@ -5,7 +5,7 @@ import "./../index.css";
 const ChatLoading = () => {
   return (
     <div id="loading-jokes">
-      <Stack gap={1}>
+      <Stack gap={1} duration="3000">
         <Skeleton w="100%" h="10" />
         <Skeleton w="100%" h="10" />
         <Skeleton w="100%" h="10" />
