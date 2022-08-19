@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import {
   Button,
@@ -26,7 +26,8 @@ const SearchBar = () => {
         status: "warning",
         duration: 3000,
         isClosable: true,
-        position: "bottom",
+        position: "top",
+        backgroundColor: "red",
       });
     }
     setLoading(true);
@@ -34,9 +35,9 @@ const SearchBar = () => {
       .get(`https://api.chucknorris.io/jokes/search?query=${searchText}`)
       .then((response) => {
         const data = response.data.result;
-        console.log(data);
+        // console.log(data);
         setLoading(false);
-        setJokes(response.data.result);
+        setJokes(data);
       })
       .catch((error) => {
         console.log(error);
@@ -75,7 +76,7 @@ const SearchBar = () => {
           onClick={handleSubmit}
           ml="5px"
         >
-          Click
+          Search
         </Button>
       </InputGroup>
       <br />
@@ -91,10 +92,29 @@ const SearchBar = () => {
                 autoEscape={true}
                 textToHighlight={joke.value}
               />
+              <h2>
+                {joke.categories.length === 0 ? (
+                  <p>
+                    Categorie: <span className="categ-txt">No categorie</span>
+                  </p>
+                ) : (
+                  <p>
+                    Categorie:{" "}
+                    <span className="categ-txt">{joke.categories}</span>
+                  </p>
+                )}
+              </h2>
             </li>
           ))
         )}
       </ul>
+      <button
+        onClick={() => {
+          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+        }}
+      >
+        Click
+      </button>
       <br />
     </FormControl>
   );
