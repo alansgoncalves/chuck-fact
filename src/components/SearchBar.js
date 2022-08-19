@@ -44,7 +44,7 @@ const SearchBar = () => {
   };
 
   return (
-    <FormControl>
+    <FormControl p="0 50px 0 50px">
       <InputGroup
         display="flex"
         justifyContent="space-between"
@@ -54,6 +54,7 @@ const SearchBar = () => {
         mr="auto"
         ml="auto"
         borderRadius="10px"
+        className="search-btn"
       >
         <InputLeftElement
           pointerEvents="none"
@@ -62,6 +63,8 @@ const SearchBar = () => {
         <Input
           type="text"
           placeholder="Search term..."
+          isInvalid
+          errorBorderColor="blue.300"
           onChange={(event) => {
             setSearchText(event.target.value);
           }}
@@ -75,22 +78,24 @@ const SearchBar = () => {
           Click
         </Button>
       </InputGroup>
-      <div>
+      <br />
+      <ul>
         {loading ? (
           <JokeLoading />
         ) : (
           jokes.map((joke, index) => (
-            <p id="joke-txt" width="50px" key={index}>
+            <li fontSize="2xl" id="joke-txt" key={index}>
               <Highlighter
-                highlightClassName="YourHighlightClass"
+                highlightClassName="markjoke"
                 searchWords={[searchText]}
                 autoEscape={true}
                 textToHighlight={joke.value}
               />
-            </p>
+            </li>
           ))
         )}
-      </div>
+      </ul>
+      <br />
     </FormControl>
   );
 };
