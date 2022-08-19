@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import {
   Button,
@@ -11,6 +11,7 @@ import { SearchIcon } from "@chakra-ui/icons";
 import { useToast } from "@chakra-ui/react";
 import JokeLoading from "./JokeLoading";
 import Highlighter from "react-highlight-words";
+import ScrollTopButton from "./ScrollTopButton";
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");
@@ -108,14 +109,8 @@ const SearchBar = () => {
           ))
         )}
       </ul>
-      <button
-        onClick={() => {
-          window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
-        }}
-      >
-        Click
-      </button>
       <br />
+      <ScrollTopButton />
     </FormControl>
   );
 };
