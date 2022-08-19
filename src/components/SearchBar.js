@@ -51,7 +51,8 @@ const SearchBar = () => {
         display="flex"
         justifyContent="space-between"
         alignItems="center"
-        w={{ base: "70%", md: "40%" }}
+        w={{ base: "100%", md: "600px" }}
+        minW="30%"
         color="black"
         mr="auto"
         ml="auto"
