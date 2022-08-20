@@ -73,4 +73,36 @@ p {
 
 .categ-txt {
   font-weight: 400;
+  padding-left: 10px;
+}
+
+.categ-p {
+  padding-left: 20px;
+}
+
+@media screen and (min-width: 299px) {
+  .btns-joke {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  .random-btn {
+    margin-left: 20px;
+  }
+
+  .search-btn {
+    margin-right: 20px;
+  }
+}
+
+@media screen and (max-width: 298px) {
+  .btns-joke {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  .search-btn {
+    margin-bottom: 20px;
+  }
 }

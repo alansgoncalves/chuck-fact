@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "@chakra-ui/react";
-import chuck from "../images/chuck.png";
-import { Image } from "@chakra-ui/react";
-// import { SearchIcon } from "@chakra-ui/icons";
 import axios from "axios";
 
-const RandomJoke = () => {
+const RandomJokeButton = () => {
   const [currentJoke, setCurrentJoke] = useState({
     joke: "",
   });
@@ -19,16 +16,13 @@ const RandomJoke = () => {
 
   return (
     <div>
-      <Image
-        src={chuck}
-        alt="chuck"
-        id="chuck-img"
-        mr="auto"
-        ml="auto"
-        w={{ base: "50%", md: "20%" }}
-      />
-      <Button colorScheme="teal" variant="solid" onClick={fetchRandom}>
-        Button
+      <Button
+        className="random-btn"
+        colorScheme="teal"
+        variant="solid"
+        onClick={fetchRandom}
+      >
+        I'm feeling lucky
       </Button>
       <h4>{currentJoke.joke}</h4>
       <br />
@@ -37,4 +31,4 @@ const RandomJoke = () => {
   );
 };
 
-export default RandomJoke;
+export default RandomJokeButton;
