@@ -28,6 +28,14 @@
     padding-right: 15%;
     margin-top: 10px;
   }
+
+  /* .body-radio-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  } */
 }
 
 mark {
@@ -86,9 +94,6 @@ p {
     justify-content: center;
     margin-top: 20px;
   }
-  .random-btn {
-    margin-left: 20px;
-  }
 
   .search-btn {
     margin-right: 20px;
@@ -105,4 +110,73 @@ p {
   .search-btn {
     margin-bottom: 20px;
   }
+}
+
+@media screen and (min-width: 768px) {
+  #random-joke-txt {
+    padding-left: 15%;
+    padding-right: 15%;
+  }
+}
+
+@media screen and (min-width: 370px) {
+  .body-radio-wrapper {
+    display: grid;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+    grid-template-columns: auto auto auto auto;
+  }
+}
+
+@media screen and (max-width: 369px) {
+  .body-radio-wrapper {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+  }
+}
+
+#random-joke-txt {
+  background: #ffffff;
+  border-radius: 3px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  margin: 8px 0;
+  padding: 15px;
+  display: grid;
+  grid-template-columns: 1fr;
+  text-align: center;
+}
+
+label {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.1;
+}
+
+.input-radio {
+  margin-left: 15px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.categ-btn {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.categ-btn2 {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

@@ -104,7 +104,7 @@ const SearchBar = () => {
             <JokeLoading />
           ) : (
             jokes.map((joke, index) => (
-              <li fontSize="2xl" id="joke-txt" key={index}>
+              <li id="joke-txt" key={index}>
                 <Highlighter
                   highlightClassName="markjoke"
                   searchWords={[searchText]}
