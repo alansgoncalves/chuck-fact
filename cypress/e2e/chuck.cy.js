@@ -1,8 +1,7 @@
 describe("HomePage UI", () => {
   it("Should return true when title component is correct", () => {
     cy.visit("http://localhost:3000/");
-    cy.contains("chuck-").should("to.have.length", 1);
-    cy.contains("joke").should("to.have.length", 1);
+    cy.contains("chuckjoke").should("to.have.length", 1);
   });
 
   it("Should add a new term", () => {

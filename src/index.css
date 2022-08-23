@@ -172,14 +172,32 @@ label {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0 20px 0 20px;
+  padding-bottom: 30px;
+}
+
+@media screen and (max-width: 272px) {
+  .categ-btn {
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 0 20px 0 20px;
+    padding-bottom: 30px;
+  }
+  .categ-btn2 {
+    margin-top: 10px;
+  }
 }
 
 .categ-btn2 {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  margin-left: 10px;
 }
+
+/* .categ-btn1 {
+  margin-right: 10px;
+} */
 
 .joke-list {
   font-weight: 400;
@@ -200,14 +218,23 @@ title-chuck {
   white-space: nowrap;
 }
 
-h2 > span {
+.title-chuck {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
   color: #000;
   font-size: 5em;
-  text-transform: lowercase;
-  vertical-align: middle;
   letter-spacing: 0.2em;
-  /* color: rgba(0, 0, 0, 0); */
   font-family: Impact, Haettenschweiler, "Arial Narrow Bold", sans-serif;
+}
+
+@media screen and (max-width: 530px) {
+  .title-chuck {
+    flex-wrap: wrap;
+    color: #000;
+    font-size: 3em;
+  }
 }
 
 .fire {

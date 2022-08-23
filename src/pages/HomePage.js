@@ -56,10 +56,10 @@ const HomePage = () => {
         id="chuck-img"
         mr="auto"
         ml="auto"
-        w={{ base: "50%", md: "20%" }}
+        w={{ base: "50%", md: "30%" }}
       />
-      <h2 className="title-chuck">
-        <span className="fire">chuck-</span>
+      <h2 className="title-chuck" width="50px">
+        <span className="fire">chuck</span>
         <span className="burn">joke</span>
       </h2>
       <br />

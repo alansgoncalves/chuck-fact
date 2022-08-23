@@ -1,4 +1,4 @@
-import { Button, FormControl, Image } from "@chakra-ui/react";
+import { Button, FormControl, Image, Stack } from "@chakra-ui/react";
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import chuck from "../images/chuck.png";
@@ -42,14 +42,14 @@ const Categories = () => {
         id="chuck-img"
         mr="auto"
         ml="auto"
-        w={{ base: "50%", md: "20%" }}
+        w={{ base: "50%", md: "30%" }}
       />
       <h2 className="title-chuck">
-        <span className="fire">chuck-</span>
+        <span className="fire">chuck</span>
         <span className="burn">joke</span>
       </h2>
       <br />
-      <FormControl p={{ base: "0 20px 0 20px", md: "0 50px 0 50px" }}>
+      <FormControl p={{ base: "0 20px 0 20px", md: "0 200px 0 200px" }}>
         <ul>
           <li id="random-joke-txt" mr="auto" ml="auto">
             <p data-cy="joke-categ" className="joke-list">
@@ -75,24 +75,24 @@ const Categories = () => {
         ))}
       </div>
       <div className="categ-btn">
-        <Button
-          data-cy="randon-btn-categ"
-          colorScheme="teal"
-          variant="solid"
-          onClick={() => randomJoke()}
-          type="module"
-        >
-          Random Joke!
-        </Button>
-      </div>
-      <div className="categ-btn2">
+        <Stack>
+          <Button
+            className="categ-btn1"
+            data-cy="randon-btn-categ"
+            colorScheme="teal"
+            variant="solid"
+            onClick={() => randomJoke()}
+          >
+            Random Joke!
+          </Button>
+        </Stack>
         <Link to="/">
           <Button
+            className="categ-btn2"
             data-cy="return-btn"
             colorScheme="yellow"
             variant="solid"
             onClick={() => randomJoke()}
-            type="module"
           >
             Return
           </Button>
