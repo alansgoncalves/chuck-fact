@@ -5,6 +5,7 @@ Chuck-fact é uma interface de pesquisa de fatos sobre Chuck Norris em um banco 
 ## Stacks
 
 **Frontend:** JavaScript e ReactJS
+
 **Testes:** Cypress
 
 #
@@ -34,3 +35,7 @@ Iniciar testes
   ou
   npm run cypress:open (para rodar os testes via navegador Chrome)
 ```
+
+## Features
+
+### Pesquise de termos
