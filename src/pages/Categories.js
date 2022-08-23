@@ -42,7 +42,7 @@ const Categories = () => {
         id="chuck-img"
         mr="auto"
         ml="auto"
-        w={{ base: "50%", md: "25%" }}
+        w={{ base: "50%", md: "21%" }}
       />
       <h2 className="title-chuck">
         <span className="fire">chuck</span>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
 import chuck from "../images/chuck.png";
 import {
@@ -23,7 +23,7 @@ const HomePage = () => {
   const toast = useToast();
 
   const handleSubmit = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     if (!searchText) {
       toast({
         title: "Please, type a term",
@@ -47,6 +47,23 @@ const HomePage = () => {
         console.log(error);
       });
   };
+
+  useEffect(() => {
+    const keyDownHandler = (event) => {
+      console.log("User pressed: ", event.key);
+
+      if (event.key === "Enter") {
+        event.preventDefault();
+        handleSubmit();
+      }
+    };
+
+    document.addEventListener("keydown", keyDownHandler);
+
+    return () => {
+      document.removeEventListener("keydown", keyDownHandler);
+    };
+  }, []);
 
   return (
     <div>
@@ -86,6 +103,7 @@ const HomePage = () => {
             placeholder="Search term..."
             isInvalid
             errorBorderColor="blue.300"
+            value={searchText}
             onChange={(event) => {
               setSearchText(event.target.value);
             }}
