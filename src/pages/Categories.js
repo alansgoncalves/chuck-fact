@@ -46,7 +46,7 @@ const Categories = () => {
       />
       <h2 className="title-chuck">
         <span className="fire">chuck</span>
-        <span className="burn">joke</span>
+        <span className="burn">fact</span>
       </h2>
       <br />
       <FormControl p={{ base: "0 20px 0 20px", md: "0 200px 0 200px" }}>
