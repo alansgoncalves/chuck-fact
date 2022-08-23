@@ -180,3 +180,7 @@ label {
   justify-content: center;
   align-items: center;
 }
+
+.joke-list {
+  font-weight: 400;
+}

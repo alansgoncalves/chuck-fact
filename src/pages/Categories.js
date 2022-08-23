@@ -47,11 +47,13 @@ const Categories = () => {
       <FormControl p={{ base: "0 20px 0 20px", md: "0 50px 0 50px" }}>
         <ul>
           <li id="random-joke-txt" mr="auto" ml="auto">
-            {currentJoke}
+            <p data-cy="joke-categ" className="joke-list">
+              {currentJoke}
+            </p>
           </li>
         </ul>
       </FormControl>
-      <p className="title">Categorie:</p>
+      <p className="title">Categories:</p>
       <div className="body-radio-wrapper">
         {category.map((categ, index) => (
           <div onChange={setValue} value={value} key={index}>
@@ -68,16 +70,24 @@ const Categories = () => {
         ))}
       </div>
       <div className="categ-btn">
-        <Button colorScheme="teal" variant="solid" onClick={() => randomJoke()}>
+        <Button
+          data-cy="randon-btn-categ"
+          colorScheme="teal"
+          variant="solid"
+          onClick={() => randomJoke()}
+          type="module"
+        >
           Random Joke!
         </Button>
       </div>
       <div className="categ-btn2">
         <Link to="/">
           <Button
+            data-cy="return-btn"
             colorScheme="yellow"
             variant="solid"
             onClick={() => randomJoke()}
+            type="module"
           >
             Return
           </Button>

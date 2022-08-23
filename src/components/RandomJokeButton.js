@@ -6,7 +6,13 @@ const RandomJokeButton = () => {
   return (
     <div>
       <Link to="/categories">
-        <Button className="random-btn" colorScheme="teal" variant="solid">
+        <Button
+          data-cy="btn-random"
+          className="random-btn"
+          colorScheme="teal"
+          variant="solid"
+          data-testid="btn"
+        >
           I'm feeling lucky
         </Button>
       </Link>

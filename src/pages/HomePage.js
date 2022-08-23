@@ -11,10 +11,10 @@ import {
 } from "@chakra-ui/react";
 import { SearchIcon } from "@chakra-ui/icons";
 import { useToast } from "@chakra-ui/react";
-import JokeLoading from "../components/JokeLoading";
+import JokeLoading from "../components/JokeLoading.js";
 import Highlighter from "react-highlight-words";
-import ScrollTopButton from "../components/ScrollTopButton";
-import RandomJokeButton from "../components/RandomJokeButton";
+import ScrollTopButton from "../components/ScrollTopButton.js";
+import RandomJokeButton from "../components/RandomJokeButton.js";
 
 const HomePage = () => {
   const [searchText, setSearchText] = useState("");
@@ -58,7 +58,7 @@ const HomePage = () => {
         ml="auto"
         w={{ base: "50%", md: "20%" }}
       />
-
+      <h2>Chuck Norris Jokes!</h2>
       <FormControl p={{ base: "0 20px 0 20px", md: "0 50px 0 50px" }}>
         <InputGroup
           display="flex"
@@ -77,6 +77,7 @@ const HomePage = () => {
             children={<SearchIcon color="black" />}
           />
           <Input
+            data-cy="input-term"
             type="text"
             placeholder="Search term..."
             isInvalid
@@ -88,6 +89,7 @@ const HomePage = () => {
         </InputGroup>
         <div className="btns-joke">
           <Button
+            data-cy="btn-search"
             className="search-btn"
             colorScheme="teal"
             variant="solid"
@@ -105,12 +107,14 @@ const HomePage = () => {
           ) : (
             jokes.map((joke, index) => (
               <li id="joke-txt" key={index}>
-                <Highlighter
-                  highlightClassName="markjoke"
-                  searchWords={[searchText]}
-                  autoEscape={true}
-                  textToHighlight={joke.value}
-                />
+                <p data-cy="list-search" className="joke-list">
+                  <Highlighter
+                    highlightClassName="markjoke"
+                    searchWords={[searchText]}
+                    autoEscape={true}
+                    textToHighlight={joke.value}
+                  />
+                </p>
                 <h2>
                   {joke.categories.length === 0 ? (
                     <p className="categ-p">
