@@ -44,6 +44,11 @@ const Categories = () => {
         ml="auto"
         w={{ base: "50%", md: "20%" }}
       />
+      <h2 className="title-chuck">
+        <span className="fire">chuck-</span>
+        <span className="burn">joke</span>
+      </h2>
+      <br />
       <FormControl p={{ base: "0 20px 0 20px", md: "0 50px 0 50px" }}>
         <ul>
           <li id="random-joke-txt" mr="auto" ml="auto">
