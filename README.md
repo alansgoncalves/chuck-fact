@@ -39,3 +39,6 @@ Iniciar testes
 ## Features
 
 ### Pesquise de termos
+
+<img width="1440" alt="Screen Shot 2022-08-23 at 16 16 23" src="https://user-images.githubusercontent.com/76542913/186247655-da211fb6-6c30-420e-b2c7-664c5f1f099e.png">
+<img width="1440" alt="Screen Shot 2022-08-23 at 16 16 56" src="https://user-images.githubusercontent.com/76542913/186247702-12134952-e4ac-406e-8844-4a3fd571912d.png">
