@@ -23,7 +23,6 @@ const HomePage = () => {
   const toast = useToast();
 
   const handleSubmit = (event) => {
-    // event.preventDefault();
     if (!searchText) {
       toast({
         title: "Please, type a term",
@@ -48,16 +47,16 @@ const HomePage = () => {
       });
   };
 
+  // Effect to add event when user press Enter to search terms
   useEffect(() => {
     const keyDownHandler = (event) => {
-      console.log("User pressed: ", event.key);
+      console.log(event.key);
 
       if (event.key === "Enter") {
         event.preventDefault();
         handleSubmit();
       }
     };
-
     document.addEventListener("keydown", keyDownHandler);
 
     return () => {
