@@ -10,6 +10,12 @@ Chuck-fact é uma interface de pesquisa de fatos sobre Chuck Norris em um banco 
 
 #
 
+## Deploy
+
+https://chuck-fact.vercel.app/categories
+
+#
+
 ## Vá para o diretório do projeto
 
 ```bash
