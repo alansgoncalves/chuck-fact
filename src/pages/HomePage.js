@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import chuck from "../images/chuck.png";
 import {
@@ -47,7 +47,7 @@ const HomePage = () => {
   };
 
   //logic to render joke when user press enter
-  const keyDownFunction = (event) => {
+  const keyDownEnter = (event) => {
     if (event.key === "Enter") {
       event.preventDefault();
       handleSubmit();
@@ -96,7 +96,7 @@ const HomePage = () => {
             onChange={(event) => {
               setSearchText(event.target.value);
             }}
-            onKeyDown={keyDownFunction}
+            onKeyDown={keyDownEnter}
           />
         </InputGroup>
         <div className="btns-joke">
