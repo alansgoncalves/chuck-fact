@@ -22,7 +22,7 @@ const HomePage = () => {
   const [loading, setLoading] = useState(false);
   const toast = useToast();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
     if (!searchText) {
       toast({
         title: "Please, type a term",
@@ -38,7 +38,6 @@ const HomePage = () => {
       .get(`https://api.chucknorris.io/jokes/search?query=${searchText}`)
       .then((response) => {
         const data = response.data.result;
-        // console.log(data);
         setLoading(false);
         setJokes(data);
       })
@@ -47,22 +46,13 @@ const HomePage = () => {
       });
   };
 
-  // Effect to add event when user press Enter to search terms
-  useEffect(() => {
-    const keyDownHandler = (event) => {
-      console.log(event.key);
-
-      if (event.key === "Enter") {
-        event.preventDefault();
-        handleSubmit();
-      }
-    };
-    document.addEventListener("keydown", keyDownHandler);
-
-    return () => {
-      document.removeEventListener("keydown", keyDownHandler);
-    };
-  }, []);
+  //logic to render joke when user press enter
+  const keyDownFunction = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      handleSubmit();
+    }
+  };
 
   return (
     <div>
@@ -106,6 +96,7 @@ const HomePage = () => {
             onChange={(event) => {
               setSearchText(event.target.value);
             }}
+            onKeyDown={keyDownFunction}
           />
         </InputGroup>
         <div className="btns-joke">
