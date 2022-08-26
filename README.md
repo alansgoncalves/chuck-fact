@@ -4,7 +4,7 @@ Chuck-fact é uma interface de pesquisa de fatos sobre Chuck Norris em um banco 
 
 ## Stacks
 
-**Frontend:** JavaScript e ReactJS
+**Frontend:** JavaScript, ReactJS e Chakra UI
 
 **Testes:** Cypress
 
